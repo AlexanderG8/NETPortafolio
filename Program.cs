@@ -20,6 +20,7 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 
+/*Regla de ruteo por defecto*/
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}")
