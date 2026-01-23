@@ -2,7 +2,11 @@
 
 namespace NETPortafolio.Services
 {
-    public class RepositoryProyectos
+    public interface IRepositoryProyectos
+    {
+        List<Proyecto> ObtenerProyectos();
+    }
+    public class RepositoryProyectos : IRepositoryProyectos
     {
         public List<Proyecto> ObtenerProyectos()
         {

@@ -12,10 +12,10 @@ namespace NETPortafolio.Controllers
      */
     public class HomeController : Controller
     {
-        private readonly ILogger _logger;
-        private readonly RepositoryProyectos _repositoryProyectos;
+        private readonly ILogger<HomeController> _logger;
+        private readonly IRepositoryProyectos _repositoryProyectos;
 
-        public HomeController(ILogger logger, RepositoryProyectos repositoryProyectos)
+        public HomeController(ILogger<HomeController> logger, IRepositoryProyectos repositoryProyectos)
         {
             _logger = logger;
             _repositoryProyectos = repositoryProyectos;
@@ -25,11 +25,12 @@ namespace NETPortafolio.Controllers
          */
         public IActionResult Index()
         {
+            _logger.LogInformation("Ejecutando el método Index del HomeController");
+            var proyectos = _repositoryProyectos.ObtenerProyectos().Take(3).ToList();
+            var modelo = new HomeIndexViewModel() { Proyectos = proyectos };
             /*
              * View() es un método auxiliar que devuelve una vista asociada a la acción del controlador.
              */
-            var proyectos = _repositoryProyectos.ObtenerProyectos().Take(3).ToList();
-            var modelo = new HomeIndexViewModel() { Proyectos = proyectos };
             return View(modelo);
         }
 
