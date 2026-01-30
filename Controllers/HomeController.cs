@@ -34,9 +34,29 @@ namespace NETPortafolio.Controllers
             return View(modelo);
         }
 
-        
-
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult Proyectos()
+        {
+            var proyectos = _repositoryProyectos.ObtenerProyectos();
+            return View(proyectos);
+        }
+
+        public IActionResult Contacto() 
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Contacto(ContactViewModel contactViewModel) 
+        {
+            return RedirectToAction("Gracias");
+        }
+
+        public IActionResult Gracias() 
         {
             return View();
         }
