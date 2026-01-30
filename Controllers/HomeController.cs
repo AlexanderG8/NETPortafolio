@@ -14,11 +14,13 @@ namespace NETPortafolio.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IRepositoryProyectos _repositoryProyectos;
+        private readonly IServiceEmail _serviceEmail;
 
-        public HomeController(ILogger<HomeController> logger, IRepositoryProyectos repositoryProyectos)
+        public HomeController(ILogger<HomeController> logger, IRepositoryProyectos repositoryProyectos, IServiceEmail serviceEmail)
         {
             _logger = logger;
             _repositoryProyectos = repositoryProyectos;
+            _serviceEmail = serviceEmail;
         }
         /*
          * IActionResult son las funciones que se ejecutan cuando hacemos una petición HTTP a una ruta específica.
@@ -51,8 +53,9 @@ namespace NETPortafolio.Controllers
         }
 
         [HttpPost]
-        public IActionResult Contacto(ContactViewModel contactViewModel) 
+        public async Task<IActionResult> Contacto(ContactViewModel contactViewModel) 
         {
+            await _serviceEmail.Enviar(contactViewModel);
             return RedirectToAction("Gracias");
         }
 

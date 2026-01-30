@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IRepositoryProyectos, RepositoryProyectos>();
+builder.Services.AddTransient<IServiceEmail, ServiceEmailGmail>();
 
 var app = builder.Build();
 
