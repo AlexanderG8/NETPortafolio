@@ -1,7 +1,22 @@
-﻿@{
-    ViewData["Title"] = "Contacto";
+@{
+    ViewData["Title"] = "Mensaje enviado";
 }
 
-<h1>Gracias por ponerte en contacto conmigo!</h1>
-<p>Te contestaré el mensaje lo más pronto posible</p>
-<div><a asp-controller="Home" asp-action="Index">Volver al inicio</a></div>
+<section class="gracias-section">
+    <div class="container">
+        <div class="text-center" style="max-width: 520px; margin: 0 auto;">
+            <div class="gracias-icon">
+                <i class="bi bi-check-lg"></i>
+            </div>
+            <h1 class="fw-800 mb-3" style="font-size: 2rem; font-weight: 800; color: var(--dark);">
+                ¡Mensaje enviado!
+            </h1>
+            <p class="mb-4" style="color: #64748b; font-size: 1.05rem; line-height: 1.7;">
+                Gracias por ponerte en contacto conmigo. Te responderé lo antes posible.
+            </p>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-primary">
+                <i class="bi bi-house me-2"></i>Volver al inicio
+            </a>
+        </div>
+    </div>
+</section>
