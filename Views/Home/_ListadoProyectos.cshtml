@@ -1,26 +1,26 @@
-﻿@model IEnumerable<Proyecto>
+@model IEnumerable<Proyecto>
 
 @if (Model is not null)
 {
-	<div class="container">
-		<div class="row row-cols-1 row-cols-md-3 g-4">
-			@foreach (var proyecto in Model)
-			{
-				<div class="col">
-					<div class="card h-100">
-						<img src="@proyecto.ImagenURL" class="card-img-top" alt="@proyecto.Titulo" />
-						<div class="card-body">
-							<h5 class="card-title">@proyecto.Titulo</h5>
-							<p class="card-text">@proyecto.Descripcion</p>
-						</div>
-						<div class="card-footer">
-							<a class="btn btn-primary" href="@proyecto.Link" target="_blank" rel="noopener noreferrer">Visitar</a>
-						</div>
-					</div>
-				</div>
-			}
-		</div>
-	</div>
-
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        @foreach (var proyecto in Model)
+        {
+            <div class="col">
+                <div class="project-card">
+                    <div class="project-card-img-wrapper">
+                        <img src="@proyecto.ImagenURL" class="card-img-top" alt="@proyecto.Titulo" />
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@proyecto.Titulo</h5>
+                        <p class="card-text">@proyecto.Descripcion</p>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-primary btn-sm" href="@proyecto.Link" target="_blank" rel="noopener noreferrer">
+                            <i class="bi bi-box-arrow-up-right me-1"></i>Visitar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 }
-

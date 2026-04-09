@@ -1,11 +1,22 @@
-﻿@model IEnumerable<Proyecto>
+@model IEnumerable<Proyecto>
 
 @if (Model is not null)
 {
-	<div class="text-center" style="padding-top:6rem;">
-		<h1>Mis trabajos recientes</h1>
-		<p>Aquí puedes ver algunos de mis trabajos más recientes.</p>
-	</div>
+    <section class="seccion-proyectos">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag">Portafolio</span>
+                <h2>Trabajos recientes</h2>
+                <p>Una selección de proyectos en los que he trabajado.</p>
+            </div>
 
-	<partial name="_ListadoProyectos" model="Model" />
+            <partial name="_ListadoProyectos" model="Model" />
+
+            <div class="text-center mt-5">
+                <a asp-controller="Home" asp-action="Proyectos" class="btn btn-primary">
+                    <i class="bi bi-grid me-2"></i>Ver todos los proyectos
+                </a>
+            </div>
+        </div>
+    </section>
 }

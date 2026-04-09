@@ -1,14 +1,18 @@
-﻿@model IEnumerable<Proyecto>
+@model IEnumerable<Proyecto>
 
 @{
     ViewData["Title"] = "Proyectos";
 }
 
-<div class="container">
-    <h1>Mis Proyectos</h1>
-    <p>
-        Aquí encontrarás todos los proyectos en los que he trabajado.
-    </p>
-</div>
+<section class="page-hero">
+    <div class="container">
+        <h1><i class="bi bi-grid me-3"></i>Mis Proyectos</h1>
+        <p>Todos los proyectos en los que he trabajado.</p>
+    </div>
+</section>
 
-<partial name="_ListadoProyectos" model="Model" />
+<section class="seccion-proyectos">
+    <div class="container">
+        <partial name="_ListadoProyectos" model="Model" />
+    </div>
+</section>

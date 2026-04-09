@@ -1,23 +1,79 @@
-﻿@{
+@{
     ViewData["Title"] = "Contacto";
 }
 
-<h1>Formulario de Contacto</h1>
+<section class="page-hero">
+    <div class="container">
+        <h1><i class="bi bi-envelope me-3"></i>Contacto</h1>
+        <p>¿Tienes un proyecto en mente? Me encantaría escucharte.</p>
+    </div>
+</section>
 
-<form asp-controller="Home" asp-action="Contacto">
-    <div class="mb-3">
-        <label form="nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required />
+<section class="contact-section">
+    <div class="container">
+        <div class="row g-4 justify-content-center">
+
+            <!-- Info de contacto -->
+            <div class="col-lg-4 col-md-5">
+                <div class="mb-4">
+                    <h4 class="fw-700" style="color: var(--dark); font-weight: 700;">Hablemos</h4>
+                    <p style="color: #64748b; font-size: 0.95rem;">
+                        Estoy disponible para proyectos freelance, oportunidades laborales o simplemente para charlar sobre tecnología.
+                    </p>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="contact-info-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                    <div>
+                        <h6>Ubicación</h6>
+                        <p>Santo Domingo, República Dominicana</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="contact-info-icon"><i class="bi bi-envelope-fill"></i></div>
+                    <div>
+                        <h6>Email</h6>
+                        <p>alexander@ejemplo.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="contact-info-icon"><i class="bi bi-linkedin"></i></div>
+                    <div>
+                        <h6>LinkedIn</h6>
+                        <p>linkedin.com/in/alexandergomez</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario -->
+            <div class="col-lg-6 col-md-7">
+                <div class="contact-card">
+                    <h5 class="mb-4 fw-bold" style="color: var(--dark);">Envíame un mensaje</h5>
+                    <form asp-controller="Home" asp-action="Contacto" method="post">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre completo</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre"
+                                   placeholder="Tu nombre" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                   placeholder="tu@email.com" required />
+                        </div>
+                        <div class="mb-4">
+                            <label for="mensaje" class="form-label">Mensaje</label>
+                            <textarea class="form-control" id="mensaje" name="mensaje" rows="5"
+                                      placeholder="Cuéntame sobre tu proyecto o consulta..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="bi bi-send me-2"></i>Enviar mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
     </div>
-    <div class="mb-3">
-        <label form="email" class="form-label">Email</label>
-        <input type="text" class="form-control" id="email" name="email" placeholder="Email" required />
-    </div>
-    <div class="mb-3">
-        <label form="mensaje" class="form-label">Mensaje</label>
-        <textarea class="form-control" id="mensaje" name="mensaje" placeholder="Mensaje" required></textarea>
-    </div>
-    <div class="mb-3">
-        <input type="submit" class="btn btn-primary" value="Guardar" />
-    </div>
-</form>
+</section>
